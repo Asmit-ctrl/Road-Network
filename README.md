@@ -11,7 +11,7 @@ Comprehensive benchmarking, model architectures, and experimental outcomes for s
 | **V1 Baseline** | [`deepglobe_road_segmentation_baselines.ipynb`](file:///Road_BaseLine.ipynb) | DeepLabV3+ (ResNet-34) | Mild CLAHE + Bilateral | `0.652` | `0.6637` | `0.7970` |
 | **V2 Baseline** | [`deepglobe_road_segmentation_baselines.ipynb`](file:///deepglobe_road_segmentation_baselines.ipynb) | UNet++ (ResNet-34) | Standard Normalization | `0.635` | `0.647` |  `0.7853` |
 | **V3.0** | [**`Road_Sentinel2_TeacherStudent_v3.ipynb`**](file:///Road_Sentinel2_TeacherStudent_v3.ipynb) | Teacher-Student Knowledge Distillation | Teacher Guidance Loss | `-` | `-` | `-` |
-| **V4.0** | [**`Road_FocusFormer_v4.ipynb`**](file:///Road_FocusFormer_v4.ipynb) | FocusFormer (W-FSA + CSA) | Focus Patch Attention | `` | `-` | `-` |
+| **V4.0** | [**`Road_FocusFormer_v4.ipynb`**](file:///Road_FocusFormer_v4.ipynb) | FocusFormer (W-FSA + CSA) | Focus Patch Attention | `-` | `-` | `-` |
 | **V5.0** | [**`Road_DLinkNet_v5.ipynb`**](file:///Road_DLinkNet_v5.ipynb) | **Official D-LinkNet34** (CVPRW 2018 Champion) | **Preprocessed + FocusMIM ($p=0.5$)** | **`0.6540`** | **`0.6542`** | **`0.7900`** |
 
 ---

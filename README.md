@@ -4,15 +4,26 @@ Comprehensive benchmarking, model architectures, and experimental outcomes for s
 
 ---
 
-## 🏆 Comparative Road Intelligence Leaderboard
+## 🏆 Notebook Results Comparison (from saved notebook outputs)
 
-| Model Version | Notebook | Key Architecture / Feature | Preprocessing / Aug | Val IoU | Test IoU | Test Dice |
-|:---|:---|:---|:---|:---:|:---:|:---:|
-| **V1 Baseline** | [`deepglobe_road_segmentation_baselines.ipynb`](file:///Road_BaseLine.ipynb) | DeepLabV3+ (ResNet-34) | Mild CLAHE + Bilateral | `0.652` | `0.6637` | `0.7970` |
-| **V2 Baseline** | [`deepglobe_road_segmentation_baselines.ipynb`](file:///deepglobe_road_segmentation_baselines.ipynb) | UNet++ (ResNet-34) | Standard Normalization | `0.635` | `0.647` |  `0.7853` |
-| **V3.0** | [**`Road_Sentinel2_TeacherStudent_v3.ipynb`**](file:///Road_Sentinel2_TeacherStudent_v3.ipynb) | Teacher-Student Knowledge Distillation | Teacher Guidance Loss | `-` | `-` | `-` |
-| **V4.0** | [**`Road_FocusFormer_v4.ipynb`**](file:///Road_FocusFormer_v4.ipynb) | FocusFormer (W-FSA + CSA) | Focus Patch Attention | `-` | `-` | `-` |
-| **V5.0** | [**`Road_DLinkNet_v5.ipynb`**](file:///Road_DLinkNet_v5.ipynb) | **Official D-LinkNet34** (CVPRW 2018 Champion) | **Preprocessed + FocusMIM ($p=0.5$)** | **`0.6540`** | **`0.6542`** | **`0.7900`** |
+| Notebook | Dataset | Model / Version | Val IoU | Val Dice | Test IoU | Test Dice | Notes |
+|:---|:---|:---|:---:|:---:|:---:|:---:|:---|
+| [`Road_BaseLine.ipynb`](file:///Road_BaseLine.ipynb) | DeepGlobe | V1 Baseline (DeepLabV3+) | `0.6637` | `0.7970` | `—` | `—` | Validation summary table is saved in output. |
+| [`Road_Segmentation_FocusMIM.ipynb`](file:///Road_Segmentation_FocusMIM.ipynb) | DeepGlobe | FocusMIM + DeepLabV3+ | `0.6479` | `0.7853` | `—` | `—` | Validation summary table is saved in output. |
+| [`Road_FocusFormer_v4.ipynb`](file:///Road_FocusFormer_v4.ipynb) | DeepGlobe | V4 FocusFormer (W-FSA + CSA) | `0.6850` | `0.8105` | `0.6810` | `0.8105` | Metrics are referenced in `road-intelligence-v5-0.ipynb` leaderboard output. |
+| [`road-intelligence-v5-0.ipynb`](file:///road-intelligence-v5-0.ipynb) | DeepGlobe | V5 D-LinkNet34 + FocusMIM | `0.6542` | `0.7900` | `0.6594` | `0.7938` | Final test evaluation cell contains full leaderboard. |
+| [`Sentinal-2_RGB_BaseLine.ipynb`](file:///Sentinal-2_RGB_BaseLine.ipynb) | Sentinel-2 RGB | Baseline DeepLabV3+ | `0.2785` (best), `0.2703` (final) | `—` | `—` | `—` | Notebook verdict: weak but non-zero signal. |
+| [`Sentianl_2_RGB_Knowledge_Distillation.ipynb`](file:///Sentianl_2_RGB_Knowledge_Distillation.ipynb) | Sentinel-2 RGB | V3 Distilled Student | `—` | `—` | `0.3189` | `0.4815` | Final test block includes comparison against DeepGlobe baselines. |
+
+---
+
+## ✅ Conclusions from all notebooks
+
+1. **Best DeepGlobe score in saved outputs** is the **V4 FocusFormer** result reported in the V5 notebook leaderboard (`Test IoU 0.6810`, `Test Dice 0.8105`).
+2. **V1 DeepLabV3+ baseline is strong and stable** (`Val IoU 0.6637`, `Val Dice 0.7970`) and remains competitive with later variants.
+3. **FocusMIM with DeepLabV3+ did not beat V1 baseline** in its standalone run (`Val IoU 0.6479`), but it is reused in the V5 D-LinkNet pipeline.
+4. **V5 D-LinkNet34 + FocusMIM is robust** and produced `Test IoU 0.6594`, `Test Dice 0.7938` in the saved run.
+5. **Sentinel-2 is clearly harder than DeepGlobe**: baseline is low (`Best Val IoU 0.2785`), and distillation improves test performance (`Test IoU 0.3189`, `Dice 0.4815`) but still trails DeepGlobe metrics.
 
 ---
 

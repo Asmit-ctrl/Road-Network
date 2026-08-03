@@ -31,17 +31,18 @@ Comprehensive benchmarking, model architectures, and experimental outcomes for s
 
 | Notebook File | Description |
 |:---|:---|
-| [**`Road_DLinkNet_v5.ipynb`**](file:///Road_DLinkNet_v5.ipynb) | **Version 5.0**: Official PyTorch D-LinkNet34 + Preprocessed Dataset + FocusMIM (`MaskAug`) + Resumable Checkpoints. |
+| [**`road-intelligence-v5-0.ipynb`**](file:///road-intelligence-v5-0.ipynb) | **Version 5.0**: Official PyTorch D-LinkNet34 + Preprocessed Dataset + FocusMIM (`MaskAug`) + Resumable Checkpoints. |
 | [**`Road_FocusFormer_v4.ipynb`**](file:///Road_FocusFormer_v4.ipynb) | **Version 4.0**: FocusFormer Model with Windowed Focus Self-Attention (W-FSA) & Channel Spatial Attention (CSA). |
-| [**`Road_Sentinel2_TeacherStudent_v3.ipynb`**](file:///Road_Sentinel2_TeacherStudent_v3.ipynb) | **Version 3.0**: Teacher-Student Knowledge Distillation Framework for Satellite Road Extraction. |
-| [`deepglobe_road_segmentation_baselines.ipynb`](file:///deepglobe_road_segmentation_baselines.ipynb) | **Version 1.0 & 2.0**: Initial Baseline Benchmarks (DeepLabV3+ & UNet++). |
-| [`train_dlinknet_v5.py`](file:///train_dlinknet_v5.py) | Standalone modular PyTorch training script for V5.0 D-LinkNet34 execution via CLI. |
+| [**`Sentianl_2_RGB_Knowledge_Distillation.ipynb`**](file:///Sentianl_2_RGB_Knowledge_Distillation.ipynb) | **Version 3.0**: Teacher-Student Knowledge Distillation Framework for Satellite Road Extraction. |
+| [`Road_BaseLine.ipynb`](file:///Road_BaseLine.ipynb) | **Version 1.0**: DeepGlobe baseline training and evaluation (DeepLabV3+). |
+| [`Road_Segmentation_FocusMIM.ipynb`](file:///Road_Segmentation_FocusMIM.ipynb) | **Version 2.0**: DeepGlobe segmentation with FocusMIM augmentation. |
+| [`Sentinal-2_RGB_BaseLine.ipynb`](file:///Sentinal-2_RGB_BaseLine.ipynb) | Sentinel-2 RGB baseline experiment and data-quality verdict run. |
 
 ---
 
 ## 🔬 Model Architectures & Methodologies
 
-### 🚀 Version 5.0 — Official D-LinkNet34 + FocusMIM (`Road_DLinkNet_v5.ipynb`)
+### 🚀 Version 5.0 — Official D-LinkNet34 + FocusMIM (`road-intelligence-v5-0.ipynb`)
 - **Paper Reference**: *D-LinkNet: LinkNet with Pretrained Encoder and Dilated Convolution for High Resolution Satellite Imagery Road Extraction* (CVPRW 2018 Champion).
 - **Encoder**: ResNet-34 pretrained on ImageNet.
 - **Center Block (`Dblock`)**: Cascaded 3x3 dilated convolutions with dilations $1, 2, 4, 8$ and sum shortcut $x + d_1 + d_2 + d_3 + d_4$.
@@ -54,7 +55,7 @@ Comprehensive benchmarking, model architectures, and experimental outcomes for s
 - **Architecture**: FocusFormer with Windowed Focus Self-Attention (W-FSA) and Channel-Spatial Attention (CSA) modules.
 - **Goal**: Addresses long-range linear road continuity and occlusions caused by tree canopy and building shadows.
 
-### 🎓 Version 3.0 — Teacher-Student Framework (`Road_Sentinel2_TeacherStudent_v3.ipynb`)
+### 🎓 Version 3.0 — Teacher-Student Framework (`Sentianl_2_RGB_Knowledge_Distillation.ipynb`)
 - **Architecture**: Cross-modal / Cross-resolution Teacher-Student Knowledge Distillation.
 - **Goal**: Transfers rich contextual feature representations from high-resolution satellite imagery to lighter student segmenters.
 
@@ -72,16 +73,11 @@ To resolve sensor noise, atmospheric haze, and low contrast without introducing 
 
 ## ⚡ Quick Start & Execution
 
-### 1. Training V5.0 D-LinkNet via Command Line
-```powershell
-python train_dlinknet_v5.py
-```
-
-### 2. Running in Jupyter / Kaggle / Colab
+### 1. Running in Jupyter / Kaggle / Colab
 Open any of the Jupyter Notebook files:
-- [**`Road_DLinkNet_v5.ipynb`**](file:///Road_DLinkNet_v5.ipynb)
+- [**`road-intelligence-v5-0.ipynb`**](file:///road-intelligence-v5-0.ipynb)
 - [**`Road_FocusFormer_v4.ipynb`**](file:///Road_FocusFormer_v4.ipynb)
-- [**`Road_Sentinel2_TeacherStudent_v3.ipynb`**](file:///Road_Sentinel2_TeacherStudent_v3.ipynb)
+- [**`Sentianl_2_RGB_Knowledge_Distillation.ipynb`**](file:///Sentianl_2_RGB_Knowledge_Distillation.ipynb)
 
 Set runtime accelerator to **GPU (T4 / P100 / A100)** and execute all cells.
 

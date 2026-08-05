@@ -48,7 +48,7 @@ Comprehensive benchmarking, model architectures, and experimental outcomes for s
 - **Center Block (`Dblock`)**: Cascaded 3x3 dilated convolutions with dilations $1, 2, 4, 8$ and sum shortcut $x + d_1 + d_2 + d_3 + d_4$.
 - **Decoder (`DecoderBlock`)**: LinkNet bottleneck deconv blocks ($1\times1 \text{ Conv} \to 3\times3 \text{ TransposedConv} \to 1\times1 \text{ Conv}$) with additive skip connections.
 - **Pre-Enhancement**: Separate 3-stage preprocessing pipeline (CLAHE 1.2 + Bilateral Denoising + High-Pass Sharpening) saved to disk (`dataset-Road-Deepglobe-Preprocessed`).
-- **FocusMIM Data Augmentation (`MaskAug`)**: Dynamic road corridor $16\times16$ patch masking ($p=0.5, K=85, \text{mask\_ratio}=0.30, \text{token}=128$).
+- **FocusMIM Data Augmentation (`MaskAug`)**: Dynamic road corridor $16\times16$ patch masking ($p=0.5, K=85).
 - **Resumable Training**: Automatic checkpoint detection & loading (`best_dlinknet_v5.pth`) across Kaggle input directories and local paths.
 
 ### ⚡ Version 4.0 — FocusFormer (`Road_FocusFormer_v4.ipynb`)
